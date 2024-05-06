@@ -1,0 +1,28 @@
+#petition {
+    height: 100%;
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+}
+
+#petition-text {
+    margin: 3px;
+    padding: 30px;
+    height: 100%;
+    font-family: 'Lucida Grande';
+    line-height: 20px;
+    background-color: #eee;
+    border-radius: 30px;
+    overflow: scroll;
+}
+
+#petition-text pre {
+    display: inline;
+}
+
+#petition-signing {
+    text-align: center;
+}
+
+#signature-input {
+    font-family: cursive;
+}

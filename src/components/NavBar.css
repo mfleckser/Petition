@@ -1,0 +1,37 @@
+#nav-bar {
+    display: flex;
+    position: fixed;
+    background-color:rgb(106, 115, 90);
+    font-size: 25px;;
+    height: 8%;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.25s ease;
+}
+
+#nav-bar:hover {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5); 
+}
+
+#pages {
+    display: grid;
+    grid-template: auto / auto auto auto;
+    width: 60%;
+}
+
+.nav-bar-item {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.nav-bar-item:hover {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.selected {
+    margin: 4px;
+    background-color: rgb(173, 188, 147);
+}

@@ -1,12 +1,13 @@
 #petition {
     height: 100%;
     display: grid;
-    grid-template: auto / 1fr 1fr;
+    grid-template: 1fr 3fr / 1fr 1fr;
 }
 
 #petition-text {
     margin: 3px;
     padding: 30px;
+    grid-row: 1 / 3;
     height: 100%;
     font-family: 'Lucida Grande';
     line-height: 20px;
@@ -19,10 +20,57 @@
     display: inline;
 }
 
-#petition-signing {
+#signatures h1, #petition-signing h1 {
     text-align: center;
+}
+
+#sign-form {
+    display: flex;
+    justify-content: center;
 }
 
 #signature-input {
     font-family: cursive;
+    width: 30%;
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.2s ease;
+}
+
+#signature-input:focus {
+    box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4); 
+}
+
+#signature-submit {
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 10px 20px;
+}
+
+#signature-submit:hover {
+    padding: 9px 18px;
+    margin: 1px 2px;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.3);
+    background-color: #ddd;
+}
+
+#signatures {
+    text-align: center;
+}
+
+.signature {
+    font-family: cursive;
+}
+
+#names {
+    height: 400px;
+    overflow: scroll;
+    background-color: rgb(173, 188, 147);
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 10px;
 }

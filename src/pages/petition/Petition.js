@@ -1,15 +1,30 @@
 import "./Petition.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getNames, addName } from "../../data";
 
 function Petition() {
     const [value, setValue] = useState("");
+    const [names, setNames] = useState([]);
+
+    useEffect(() => {
+        retrieveNames();
+    }, []);
+
+    const retrieveNames = async () => {
+        const names = await getNames();
+        setNames(names);
+    }
 
     const updateValue = e => {
         setValue(e.target.value);
     }
 
     const submitForm = () => {
-        setValue("");
+        if (value !== "") {
+            addName(value);
+            setNames([...names, value]);
+            setValue("");
+        }
     }
 
     return (<div id="petition">
@@ -22,8 +37,14 @@ function Petition() {
             <pre>   </pre>Sign to the right to save humanity from sacrificing itself for the sake of technology.</p>
         <div id="petition-signing">
             <h1>Sign Here</h1>
-            <input id="signature-input" value={value} onChange={updateValue} type="text" placeholder="Your Name Here" />
-            <button id="signature-submit" onClick={submitForm}>Sign</button>
+            <div id="sign-form">
+                <input id="signature-input" value={value} onChange={updateValue} type="text" placeholder="Your Name Here" autoComplete="off"/>
+                <button id="signature-submit" onClick={submitForm}>Sign</button>
+            </div>
+        </div>
+        <div id="signatures">
+            <h1>Signatures:</h1>
+            <div id="names">{names.map(name => { return <li className="signature">{name}</li> })}</div>
         </div>
     </div>);
 }
